@@ -71,6 +71,12 @@ var TalkingDataShoppingCart = {
 };
 
 var TalkingData = {
+    setAntiCheatingEnabled:function(enabled) {
+        if (isWebviewFlag) {
+            exec("setAntiCheatingEnabled", [enabled]);
+        }
+    },
+
     AccountType: {
         ANONYMOUS   : 0,
         REGISTERED  : 1,

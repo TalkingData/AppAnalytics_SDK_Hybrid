@@ -57,6 +57,12 @@ public class TalkingDataHTML {
 		webView.loadUrl("javascript:" + callBack + "('" + deviceId + "')");
 	}
 	
+    @SuppressWarnings("unused")
+    private void setAntiCheatingEnabled(final JSONArray args) throws JSONException {
+        boolean enabled = args.getBoolean(0);
+        TCAgent.setAntiCheatingEnabled(MainActivity.context, enabled);
+    }
+    
 	@SuppressWarnings("unused")
 	private void onRegister(final JSONArray args) throws JSONException {
 		String accountId = args.getString(0);

@@ -76,6 +76,15 @@
     [TalkingData setLatitude:latitude longitude:longitude];
 }
 
+- (void)setAntiCheatingEnabled:(NSArray *)arguments {
+    NSString *arg0 = [arguments objectAtIndex:0];
+    if (arg0 == nil || [arg0 isKindOfClass:[NSNull class]]) {
+        return;
+    }
+    BOOL enabled = [arg0 boolValue];
+    [TalkingData setAntiCheatingEnabled:enabled];
+}
+
 - (void)onRegister:(NSArray *)arguments {
     NSString *accountId = [arguments objectAtIndex:0];
     if (![accountId isKindOfClass:[NSString class]]) {

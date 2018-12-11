@@ -7,6 +7,8 @@
 //
 
 #import "TalkingDataHTML.h"
+#import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
 #import "TalkingData.h"
 
 

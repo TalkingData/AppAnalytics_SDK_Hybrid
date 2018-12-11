@@ -1,26 +1,25 @@
 //
-//  ViewController.m
+//  TDUIWebViewController.m
 //  HybridDemo
 //
-//  Created by liweiqiang on 2018/3/19.
-//  Copyright © 2018年 TendCloud. All rights reserved.
+//  Created by liweiqiang on 2018/12/11.
 //
 
-#import "ViewController.h"
+#import "TDUIWebViewController.h"
 #import "TalkingDataHTML.h"
 #import "TalkingData.h"
 
-@interface ViewController () <UIWebViewDelegate>
+@interface TDUIWebViewController () <UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
 
-@implementation ViewController
+@implementation TDUIWebViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view.
     NSURL *url = [NSURL URLWithString:@"https://talkingdata.github.io/HybridAssets/index.html"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:request];
@@ -31,9 +30,10 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     if ([TalkingDataHTML execute:request.URL webView:webView]) {
         return NO;
+    } else {
+        [TalkingData trackPageBegin:request.URL.absoluteString];
+        return YES;
     }
-    [TalkingData trackPageBegin:request.URL.absoluteString];
-    return YES;
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {

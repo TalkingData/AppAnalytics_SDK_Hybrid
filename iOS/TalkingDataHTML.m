@@ -21,7 +21,7 @@
 
 @implementation TalkingDataHTML
 
-+ (BOOL)execute:(NSURL *)url webView:(id)webView {
++ (BOOL)execute:(NSURL *)url webView:(WKWebView *)webView {
     NSString *parameters = [url.absoluteString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     if ([parameters hasPrefix:@"talkingdata"]) {
         static TalkingDataHTML *talkingDataHTML = nil;
@@ -50,16 +50,14 @@
     return NO;
 }
 
-- (void)getDeviceId:(NSArray *)arguments webView:(id)webView {
+- (void)getDeviceId:(NSArray *)arguments webView:(WKWebView *)webView {
     NSString *arg0 = [arguments objectAtIndex:0];
     if (arg0 == nil || [arg0 isKindOfClass:[NSNull class]] || arg0.length == 0) {
         return;
     }
     NSString *deviceId = [TalkingData getDeviceID];
     NSString *callBack = [NSString stringWithFormat:@"%@('%@')", arg0, deviceId];
-    if ([webView isKindOfClass:[UIWebView class]]) {
-        [webView stringByEvaluatingJavaScriptFromString:callBack];
-    } else if ([webView isKindOfClass:[WKWebView class]]) {
+    if ([webView isKindOfClass:[WKWebView class]]) {
         [webView evaluateJavaScript:callBack completionHandler:nil];
     }
 }

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uXd-71-U3X">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uXd-71-U3X">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,128 +12,21 @@
             <objects>
                 <navigationController id="uXd-71-U3X" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oYE-8S-KQY">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="QTU-Fw-36W" kind="relationship" relationship="rootViewController" id="Vyr-g6-RrH"/>
+                        <segue destination="jQP-I7-hJA" kind="relationship" relationship="rootViewController" id="lXs-Zm-oXD"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ne-j7-Oz2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0" y="360"/>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
         <!--TalkingData Hybrid Demo-->
-        <scene sceneID="XLc-xV-aZi">
-            <objects>
-                <tableViewController id="QTU-Fw-36W" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="S2A-CR-u60">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <sections>
-                            <tableViewSection id="cdj-Ku-V4d">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="zVn-oT-MGk" style="IBUITableViewCellStyleDefault" id="eNL-CW-WtE">
-                                        <rect key="frame" x="0.0" y="35" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eNL-CW-WtE" id="n6d-bA-ed8">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="UIWebView Dome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zVn-oT-MGk">
-                                                    <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="ung-ty-FZE" kind="show" id="gdW-ru-G2A"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection id="KlT-Jn-kwo">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="uOS-GG-Xhp" style="IBUITableViewCellStyleDefault" id="enh-YG-FI8">
-                                        <rect key="frame" x="0.0" y="115" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="enh-YG-FI8" id="5yF-Ug-Wqh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="WKWebView Demo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uOS-GG-Xhp">
-                                                    <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="jQP-I7-hJA" kind="show" id="cYF-Ek-NdM"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="QTU-Fw-36W" id="1la-ZG-znE"/>
-                            <outlet property="delegate" destination="QTU-Fw-36W" id="LFL-t1-0KJ"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="TalkingData Hybrid Demo" id="ycW-bu-8pg">
-                        <barButtonItem key="backBarButtonItem" title="返回" id="pjI-dk-2GJ"/>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zfc-uA-Psq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="720" y="360"/>
-        </scene>
-        <!--UIWebView Demo-->
-        <scene sceneID="RBG-eH-wxo">
-            <objects>
-                <viewController title="UIWebView Demo" id="ung-ty-FZE" customClass="TDUIWebViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5pf-zm-L14"/>
-                        <viewControllerLayoutGuide type="bottom" id="Wkm-Rn-4hr"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="uAq-Fb-2YO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oGu-VF-eRY">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <outlet property="delegate" destination="ung-ty-FZE" id="oQp-nB-keK"/>
-                                </connections>
-                            </webView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="oGu-VF-eRY" firstAttribute="leading" secondItem="uAq-Fb-2YO" secondAttribute="leading" id="Ri0-BP-S0p"/>
-                            <constraint firstItem="oGu-VF-eRY" firstAttribute="top" secondItem="5pf-zm-L14" secondAttribute="bottom" id="gFg-ji-AIM"/>
-                            <constraint firstItem="Wkm-Rn-4hr" firstAttribute="top" secondItem="oGu-VF-eRY" secondAttribute="bottom" id="qZG-mq-DVE"/>
-                            <constraint firstAttribute="trailing" secondItem="oGu-VF-eRY" secondAttribute="trailing" id="zS2-QD-Dbq"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="webView" destination="oGu-VF-eRY" id="88m-ee-BUO"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Bm6-NK-0Yn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1440" y="0"/>
-        </scene>
-        <!--WKWebView Demo-->
         <scene sceneID="lkx-uC-afy">
             <objects>
-                <viewController title="WKWebView Demo" id="jQP-I7-hJA" customClass="TDWKWebViewController" sceneMemberID="viewController">
+                <viewController title="TalkingData Hybrid Demo" id="jQP-I7-hJA" customClass="TDWKWebViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SaJ-TD-EIV"/>
                         <viewControllerLayoutGuide type="bottom" id="y44-BQ-S28"/>
@@ -143,12 +34,12 @@
                     <view key="view" contentMode="scaleToFill" id="Uft-Ec-rw8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="akC-is-c6a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1440" y="720"/>
+            <point key="canvasLocation" x="720" y="0.0"/>
         </scene>
     </scenes>
 </document>

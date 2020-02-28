@@ -8,14 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+@class WKWebView;
+
 @interface TalkingDataHTML : NSObject
 
 /**
  *	@method	execute:webView:
  *
  *	@param 	url         NSURL*
- *  @param 	webView     id(UIWebView* or WKWebView*)
+ *  @param 	webView     WKWebView*
  */
-+ (BOOL)execute:(NSURL *)url webView:(id)webView;
++ (BOOL)execute:(NSURL *)url webView:(WKWebView *)webView;
 
 @end

@@ -16,7 +16,6 @@
 		54441036A9E0FBDBCD843FCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54440036A9E0FBDBCD843FCE /* Main.storyboard */; };
 		54441037A9E0FBDBCD843FCE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 54440037A9E0FBDBCD843FCE /* main.m */; };
 		54441039A9E0FBDBCD843FCE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54440039A9E0FBDBCD843FCE /* AppDelegate.m */; };
-		5444103BA9E0FBDBCD843FCE /* TDUIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5444003BA9E0FBDBCD843FCE /* TDUIWebViewController.m */; };
 		5444103DA9E0FBDBCD843FCE /* TDWKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5444003DA9E0FBDBCD843FCE /* TDWKWebViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -34,8 +33,6 @@
 		54440037A9E0FBDBCD843FCE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		54440038A9E0FBDBCD843FCE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		54440039A9E0FBDBCD843FCE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5444003AA9E0FBDBCD843FCE /* TDUIWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDUIWebViewController.h; sourceTree = "<group>"; };
-		5444003BA9E0FBDBCD843FCE /* TDUIWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDUIWebViewController.m; sourceTree = "<group>"; };
 		5444003CA9E0FBDBCD843FCE /* TDWKWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDWKWebViewController.h; sourceTree = "<group>"; };
 		5444003DA9E0FBDBCD843FCE /* TDWKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDWKWebViewController.m; sourceTree = "<group>"; };
 		54441004A9E0FBDBCD843FCE /* HybridDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HybridDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,8 +99,6 @@
 				54440037A9E0FBDBCD843FCE /* main.m */,
 				54440038A9E0FBDBCD843FCE /* AppDelegate.h */,
 				54440039A9E0FBDBCD843FCE /* AppDelegate.m */,
-				5444003AA9E0FBDBCD843FCE /* TDUIWebViewController.h */,
-				5444003BA9E0FBDBCD843FCE /* TDUIWebViewController.m */,
 				5444003CA9E0FBDBCD843FCE /* TDWKWebViewController.h */,
 				5444003DA9E0FBDBCD843FCE /* TDWKWebViewController.m */,
 			);
@@ -181,7 +176,6 @@
 				54441022A9E0FBDBCD843FCE /* TalkingDataHTML.m in Sources */,
 				54441037A9E0FBDBCD843FCE /* main.m in Sources */,
 				54441039A9E0FBDBCD843FCE /* AppDelegate.m in Sources */,
-				5444103BA9E0FBDBCD843FCE /* TDUIWebViewController.m in Sources */,
 				5444103DA9E0FBDBCD843FCE /* TDWKWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

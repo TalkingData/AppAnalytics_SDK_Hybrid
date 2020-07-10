@@ -233,5 +233,12 @@ var TalkingData = {
         if (isWebviewFlag) {
             exec("getDeviceId", [callBack.name]);
         }
+    },
+    // 获取 oaid，并将其作为参数传入 JS 的回调函数
+    // callBack  : 处理 oaid 的回调函数
+    getOAID:function(callBack) {
+        if (isWebviewFlag) {
+            exec("getOAID", [callBack.name]);
+        }
     }
 };

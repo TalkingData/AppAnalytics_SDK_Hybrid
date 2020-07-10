@@ -43,6 +43,8 @@ public class TalkingDataHTML {
 			JSONArray args = jsonObj.getJSONArray("arguments");
 			if (functionName.equals("getDeviceId")) {
 				talkingDataHTML.getDeviceId(args, webView);
+			}else if(functionName.equals("getOAID")){
+				talkingDataHTML.getOAID(args, webView);
 			} else {
 				Class<TalkingDataHTML> classType = TalkingDataHTML.class;
 				Method method = classType.getDeclaredMethod(functionName, JSONArray.class);
@@ -55,6 +57,11 @@ public class TalkingDataHTML {
 		String deviceId = TCAgent.getDeviceId(MainActivity.context);
 		String callBack = args.getString(0);
 		webView.loadUrl("javascript:" + callBack + "('" + deviceId + "')");
+	}
+	private void getOAID(final JSONArray args, final WebView webView) throws JSONException {
+		String oaid = TCAgent.getOAID(MainActivity.context);
+		String callBack = args.getString(0);
+		webView.loadUrl("javascript:" + callBack + "('" + oaid + "')");
 	}
 	
     @SuppressWarnings("unused")

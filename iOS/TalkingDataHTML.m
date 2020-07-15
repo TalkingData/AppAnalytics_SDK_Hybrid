@@ -28,6 +28,12 @@
         static dispatch_once_t predicate;
         dispatch_once(&predicate, ^{
             talkingDataHTML = [[TalkingDataHTML alloc] init];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+            if ([TalkingData respondsToSelector:@selector(setFrameworkTag:)]) {
+                [TalkingData performSelector:@selector(setFrameworkTag:) withObject:@6];
+            }
+#pragma clang diagnostic pop
         });
         NSString *str = [parameters substringFromIndex:12];
         NSDictionary *dic = [talkingDataHTML jsonToDictionary:str];
@@ -145,6 +151,26 @@
         parameters = nil;
     }
     [TalkingData trackEvent:eventId label:eventLabel parameters:parameters];
+}
+
+- (void)onEventWithValue:(NSArray *)arguments {
+    NSString *eventId = [arguments objectAtIndex:0];
+    if (eventId == nil || [eventId isKindOfClass:[NSNull class]]) {
+        return;
+    }
+    NSString *eventLabel = [arguments objectAtIndex:1];
+    if (eventLabel == nil || [eventLabel isKindOfClass:[NSNull class]]) {
+        eventLabel = nil;
+    }
+    NSDictionary *parameters = [arguments objectAtIndex:2];
+    if (parameters == nil || [parameters isKindOfClass:[NSNull class]]) {
+        parameters = nil;
+    }
+    NSNumber *eventValue = [arguments objectAtIndex:3];
+    if (eventValue == nil || [eventValue isKindOfClass:[NSNull class]]) {
+        eventValue = nil;
+    }
+    [TalkingData trackEvent:eventId label:eventLabel parameters:parameters value:[eventValue doubleValue]];
 }
 
 - (void)onPlaceOrder:(NSArray *)arguments {

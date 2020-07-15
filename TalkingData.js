@@ -144,6 +144,17 @@ var TalkingData = {
         }
     },
 
+    // 触发自定义事件
+    // eventId   : 自定义事件的 eventId
+    // eventLabel: 自定义事件的事件标签
+    // eventData : 自定义事件的数据，Json 对象格式
+    // eventValue: 自定义事件的事件数值
+    onEventWithValue:function(eventId, eventLabel, eventData, eventValue) {
+        if (isWebviewFlag) {
+            exec("onEventWithValue", [eventId, eventLabel, eventData, eventValue]);
+        }
+    },
+
     // 下单
     // accountId : 帐户ID
     // order     : 订单详情

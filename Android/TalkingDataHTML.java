@@ -109,6 +109,16 @@ public class TalkingDataHTML {
 	}
 	
 	@SuppressWarnings("unused")
+	private void onEventWithValue(final JSONArray args) throws JSONException {
+		String eventId = args.getString(0);
+		String eventLabel = args.getString(1);
+		String eventDataJson = args.getString(2);
+		Map<String, Object> eventData = this.toMap(eventDataJson);
+		double eventValue = args.getDouble(3);
+		TCAgent.onEvent(MainActivity.context, eventId, eventLabel, eventData, eventValue);
+	}
+	
+	@SuppressWarnings("unused")
 	private void onPlaceOrder(final JSONArray args) throws JSONException {
 		String accountId = args.getString(0);
 		JSONObject orderJson = args.getJSONObject(1);

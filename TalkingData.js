@@ -71,13 +71,8 @@ var TalkingDataShoppingCart = {
 };
 
 var TalkingData = {
-    setAntiCheatingEnabled:function(enabled) {
-        if (isWebviewFlag) {
-            exec("setAntiCheatingEnabled", [enabled]);
-        }
-    },
 
-    AccountType: {
+    ProfileType: {
         ANONYMOUS   : 0,
         REGISTERED  : 1,
         SINA_WEIBO  : 2,
@@ -98,22 +93,22 @@ var TalkingData = {
     },
 
     // 注册事件
-    // accountId : 帐户ID
+    // profileId : 帐户ID
     // type      : 帐户类型
     // name      : 帐户昵称
-    onRegister:function(accountId, type, name) {
+    onRegister:function(profileId, type, name) {
         if (isWebviewFlag) {
-            exec("onRegister", [accountId, type, name]);
+            exec("onRegister", [profileId, type, name]);
         }
     },
 
     // 登录事件
-    // accountId : 帐户ID
+    // profileId : 帐户ID
     // type      : 帐户类型
     // name      : 帐户昵称
-    onLogin:function(accountId, type, name) {
+    onLogin:function(profileId, type, name) {
         if (isWebviewFlag) {
-            exec("onLogin", [accountId, type, name]);
+            exec("onLogin", [profileId, type, name]);
         }
     },
  
@@ -156,21 +151,21 @@ var TalkingData = {
     },
 
     // 下单
-    // accountId : 帐户ID
+    // profileId : 帐户ID
     // order     : 订单详情
-    onPlaceOrder:function(accountId, order) {
+    onPlaceOrder:function(profileId, order) {
         if (isWebviewFlag) {
-            exec("onPlaceOrder", [accountId, order]);
+            exec("onPlaceOrder", [profileId, order]);
         };
     },
 
     // 支付订单
-    // accountId : 帐户ID
+    // profileId : 帐户ID
     // payType   : 支付类型
     // order     : 订单详情
-    onOrderPaySucc:function(accountId, payType, order) {
+    onOrderPaySucc:function(profileId, payType, order) {
         if (isWebviewFlag) {
-            exec("onOrderPaySucc", [accountId, payType, order]);
+            exec("onOrderPaySucc", [profileId, payType, order]);
         };
     },
 

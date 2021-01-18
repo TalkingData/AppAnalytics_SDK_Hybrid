@@ -103,14 +103,14 @@ App Analytics Hybrid 平台 SDK 由`封装层`和`Native SDK`两部分构成，�
 	};
 	```
 	```
-		onPlaceOrder:function(accountId, order) {
+		onPlaceOrder:function(profileId, order) {
 			if (isWebviewFlag) {
-				exec("onPlaceOrder", [accountId, order]);
+				exec("onPlaceOrder", [profileId, order]);
 			};
 		},
-		onOrderPaySucc:function(accountId, payType, order) {
+		onOrderPaySucc:function(profileId, payType, order) {
 			if (isWebviewFlag) {
-				exec("onOrderPaySucc", [accountId, payType, order]);
+				exec("onOrderPaySucc", [profileId, payType, order]);
 			};
 		},
 		onViewItem:function(itemId, category, name, unitPrice) {
@@ -261,30 +261,3 @@ App Analytics Hybrid 平台 SDK 由`封装层`和`Native SDK`两部分构成，�
 		...
 	}
 	```
-	d) 未选择`灵动分析`功能无需删除封装层代码  
-	e) 未选择`用户质量评估`功能则删除以下3部分  
-	删除 `TalkingData.js` 文件中如下代码：
-	
-	```
-		setAntiCheatingEnabled:function(enabled) {
-			if (isWebviewFlag) {
-				exec("setAntiCheatingEnabled", [enabled]);
-			}
-		},
-	```
-	删除 `Android/TalkingDataHTML.java` 文件中如下代码：
-	
-	```
-		@SuppressWarnings("unused")
-		private void setAntiCheatingEnabled(final JSONArray args) throws JSONException {
-			...
-		}
-	```
-	删除 `iOS/TalkingDataHTML.m` 文件中如下代码：
-	
-	```
-	- (void)setAntiCheatingEnabled:(NSArray *)arguments {
-		...
-	}
-	```
-	f) 未选择`推送营销`功能无需删除封装层代码  

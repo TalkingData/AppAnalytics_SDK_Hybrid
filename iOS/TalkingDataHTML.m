@@ -82,39 +82,30 @@
     [TalkingData setLatitude:latitude longitude:longitude];
 }
 
-- (void)setAntiCheatingEnabled:(NSArray *)arguments {
-    NSString *arg0 = [arguments objectAtIndex:0];
-    if (arg0 == nil || [arg0 isKindOfClass:[NSNull class]]) {
-        return;
-    }
-    BOOL enabled = [arg0 boolValue];
-    [TalkingData setAntiCheatingEnabled:enabled];
-}
-
 - (void)onRegister:(NSArray *)arguments {
-    NSString *accountId = [arguments objectAtIndex:0];
-    if (![accountId isKindOfClass:[NSString class]]) {
-        accountId = nil;
+    NSString *profileId = [arguments objectAtIndex:0];
+    if (![profileId isKindOfClass:[NSString class]]) {
+        profileId = nil;
     }
     NSUInteger type = [[arguments objectAtIndex:1] unsignedIntegerValue];
     NSString *name = [arguments objectAtIndex:2];
     if (![name isKindOfClass:[NSString class]]) {
         name = nil;
     }
-    [TalkingData onRegister:accountId type:type name:name];
+    [TalkingData onRegister:profileId type:type name:name];
 }
 
 - (void)onLogin:(NSArray *)arguments {
-    NSString *accountId = [arguments objectAtIndex:0];
-    if (![accountId isKindOfClass:[NSString class]]) {
-        accountId = nil;
+    NSString *profileId = [arguments objectAtIndex:0];
+    if (![profileId isKindOfClass:[NSString class]]) {
+        profileId = nil;
     }
     NSUInteger type = [[arguments objectAtIndex:1] unsignedIntegerValue];
     NSString *name = [arguments objectAtIndex:2];
     if (![name isKindOfClass:[NSString class]]) {
         name = nil;
     }
-    [TalkingData onLogin:accountId type:type name:name];
+    [TalkingData onLogin:profileId type:type name:name];
 }
 
 - (void)onEvent:(NSArray *)arguments {
@@ -174,22 +165,22 @@
 }
 
 - (void)onPlaceOrder:(NSArray *)arguments {
-    NSString *accountId = [arguments objectAtIndex:0];
-    if (![accountId isKindOfClass:[NSString class]]) {
-        accountId = nil;
+    NSString *profileId = [arguments objectAtIndex:0];
+    if (![profileId isKindOfClass:[NSString class]]) {
+        profileId = nil;
     }
     NSDictionary *orderDic = [arguments objectAtIndex:1];
     if (![orderDic isKindOfClass:[NSDictionary class]]) {
         orderDic = nil;
     }
     TalkingDataOrder *order = [self orderFormDictionary:orderDic];
-    [TalkingData onPlaceOrder:accountId order:order];
+    [TalkingData onPlaceOrder:profileId order:order];
 }
 
 - (void)onOrderPaySucc:(NSArray *)arguments {
-    NSString *accountId = [arguments objectAtIndex:0];
-    if (![accountId isKindOfClass:[NSString class]]) {
-        accountId = nil;
+    NSString *profileId = [arguments objectAtIndex:0];
+    if (![profileId isKindOfClass:[NSString class]]) {
+        profileId = nil;
     }
     NSString *payType = [arguments objectAtIndex:1];
     if (![payType isKindOfClass:[NSString class]]) {
@@ -200,7 +191,7 @@
         orderDic = nil;
     }
     TalkingDataOrder *order = [self orderFormDictionary:orderDic];
-    [TalkingData onOrderPaySucc:accountId payType:payType order:order];
+    [TalkingData onOrderPaySucc:profileId payType:payType order:order];
 }
 
 - (void)onViewItem:(NSArray *)arguments {

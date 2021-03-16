@@ -165,33 +165,55 @@
 }
 
 - (void)onPlaceOrder:(NSArray *)arguments {
-    NSString *profileId = [arguments objectAtIndex:0];
-    if (![profileId isKindOfClass:[NSString class]]) {
-        profileId = nil;
+    NSString *orderId = [arguments objectAtIndex:0];
+    if (![orderId isKindOfClass:[NSString class]]) {
+        orderId = nil;
     }
-    NSDictionary *orderDic = [arguments objectAtIndex:1];
-    if (![orderDic isKindOfClass:[NSDictionary class]]) {
-        orderDic = nil;
+    NSNumber *amount = [arguments objectAtIndex:1];
+    if (amount == nil || ![amount isKindOfClass:[NSNumber class]]) {
+        amount = nil;
     }
-    TalkingDataOrder *order = [self orderFormDictionary:orderDic];
-    [TalkingData onPlaceOrder:profileId order:order];
+    NSString *currencyType = [arguments objectAtIndex:2];
+    if (![currencyType isKindOfClass:[NSString class]]) {
+        currencyType = nil;
+    }
+    [TalkingData onPlaceOrder:orderId amount:[amount intValue] currencyType:currencyType];
 }
 
 - (void)onOrderPaySucc:(NSArray *)arguments {
-    NSString *profileId = [arguments objectAtIndex:0];
-    if (![profileId isKindOfClass:[NSString class]]) {
-        profileId = nil;
+    NSString *orderId = [arguments objectAtIndex:0];
+    if (![orderId isKindOfClass:[NSString class]]) {
+        orderId = nil;
     }
-    NSString *payType = [arguments objectAtIndex:1];
-    if (![payType isKindOfClass:[NSString class]]) {
-        payType = nil;
+    NSNumber *amount = [arguments objectAtIndex:1];
+    if (amount == nil || ![amount isKindOfClass:[NSNumber class]]) {
+        amount = nil;
     }
-    NSDictionary *orderDic = [arguments objectAtIndex:2];
-    if (![orderDic isKindOfClass:[NSDictionary class]]) {
-        orderDic = nil;
+    NSString *currencyType = [arguments objectAtIndex:2];
+    if (![currencyType isKindOfClass:[NSString class]]) {
+        currencyType = nil;
     }
-    TalkingDataOrder *order = [self orderFormDictionary:orderDic];
-    [TalkingData onOrderPaySucc:profileId payType:payType order:order];
+    NSString *paymentType = [arguments objectAtIndex:3];
+    if (![paymentType isKindOfClass:[NSString class]]) {
+        paymentType = nil;
+    }
+    [TalkingData onOrderPaySucc:orderId amount:[amount intValue] currencyType:currencyType paymentType:paymentType];
+}
+
+- (void)onCancelOrder:(NSArray *)arguments {
+    NSString *orderId = [arguments objectAtIndex:0];
+    if (![orderId isKindOfClass:[NSString class]]) {
+        orderId = nil;
+    }
+    NSNumber *amount = [arguments objectAtIndex:1];
+    if (amount == nil || ![amount isKindOfClass:[NSNumber class]]) {
+        amount = nil;
+    }
+    NSString *currencyType = [arguments objectAtIndex:2];
+    if (![currencyType isKindOfClass:[NSString class]]) {
+        currencyType = nil;
+    }
+    [TalkingData onCancelOrder:orderId amount:[amount intValue] currencyType:currencyType];
 }
 
 - (void)onViewItem:(NSArray *)arguments {

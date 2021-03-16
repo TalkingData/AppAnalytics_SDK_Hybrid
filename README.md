@@ -94,23 +94,24 @@ App Analytics Hybrid 平台 SDK 由`封装层`和`Native SDK`两部分构成，�
 	删除 `TalkingData.js` 文件中如下代码：
 	
 	```
-	var TalkingDataOrder = {
-		...
-	};
-	
 	var TalkingDataShoppingCart = {
 		...
 	};
 	```
 	```
-		onPlaceOrder:function(profileId, order) {
+		onPlaceOrder:function(orderId, amount, currencyType) {
 			if (isWebviewFlag) {
-				exec("onPlaceOrder", [profileId, order]);
+				exec("onPlaceOrder", [orderId, amount, currencyType]);
 			};
 		},
-		onOrderPaySucc:function(profileId, payType, order) {
+		onOrderPaySucc:function(orderId, amount, currencyType, payType) {
 			if (isWebviewFlag) {
-				exec("onOrderPaySucc", [profileId, payType, order]);
+				exec("onOrderPaySucc", [orderId, amount, currencyType, payType]);
+			};
+		},
+		onCancelOrder:function(orderId, amount, currencyType) {
+			if (isWebviewFlag) {
+				exec("onCancelOrder", [orderId, amount, currencyType]);
 			};
 		},
 		onViewItem:function(itemId, category, name, unitPrice) {
@@ -132,7 +133,6 @@ App Analytics Hybrid 平台 SDK 由`封装层`和`Native SDK`两部分构成，�
 	删除 `Android/TalkingDataHTML.java` 文件中如下代码：
 	
 	```
-	import com.tendcloud.tenddata.Order;
 	import com.tendcloud.tenddata.ShoppingCart;
 	```
 	```
@@ -143,6 +143,11 @@ App Analytics Hybrid 平台 SDK 由`封装层`和`Native SDK`两部分构成，�
 		
 		@SuppressWarnings("unused")
 		private void onOrderPaySucc(final JSONArray args) throws JSONException {
+			...
+		}
+		
+		@SuppressWarnings("unused")
+		private void onCancelOrder(final JSONArray args) throws JSONException {
 			...
 		}
 		
@@ -162,10 +167,6 @@ App Analytics Hybrid 平台 SDK 由`封装层`和`Native SDK`两部分构成，�
 		}
 	```
 	```
-		private Order orderFromJSONObject(JSONObject orderJson) {
-			...
-		}
-		
 		private ShoppingCart shoppingCartFromJSONObject(JSONObject shoppingCartJson) {
 			...
 		}
@@ -178,6 +179,10 @@ App Analytics Hybrid 平台 SDK 由`封装层`和`Native SDK`两部分构成，�
 	}
 	
 	- (void)onOrderPaySucc:(NSArray *)arguments {
+		...
+	}
+	
+	- (void)onCancelOrder:(NSArray *)arguments {
 		...
 	}
 	
@@ -194,10 +199,6 @@ App Analytics Hybrid 平台 SDK 由`封装层`和`Native SDK`两部分构成，�
 	}
 	```
 	```
-	- (TalkingDataOrder *)orderFormDictionary:(NSDictionary *)orderDic {
-		...
-	}
-	
 	- (TalkingDataShoppingCart *)shoppingCartFromDictionary:(NSDictionary *)shoppingCartDic {
 		...
 	}

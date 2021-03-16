@@ -27,29 +27,6 @@ function exec(funName, args) {
     loadURL(url);
 };
 
-var TalkingDataOrder = {
-    createOrder:function(orderId, total, currencyType) {
-        var order = {};
-        order.orderId = orderId;
-        order.total = total;
-        order.currencyType = currencyType;
-        order.items = [];
-
-        order.addItem = function(itemId, category, name, unitPrice, amount) {
-            var item = {
-                itemId: itemId,
-                category: category,
-                name: name,
-                unitPrice: unitPrice,
-                amount: amount
-            };
-            order.items.push(item);
-        };
-
-        return order;
-    }
-};
-
 var TalkingDataShoppingCart = {
     createShoppingCart:function() {
         var shoppingCart = {};
@@ -114,7 +91,7 @@ var TalkingData = {
  
     // 触发自定义事件
     // eventId   : 自定义事件的 eventId
-   onEvent:function(eventId) {
+    onEvent:function(eventId) {
         if (isWebviewFlag) {
             exec("onEvent", [eventId]);
         }
@@ -151,21 +128,33 @@ var TalkingData = {
     },
 
     // 下单
-    // profileId : 帐户ID
-    // order     : 订单详情
-    onPlaceOrder:function(profileId, order) {
+    // orderId      : 订单ID
+    // amount       : 金额
+    // currencyType : 货币类型
+    onPlaceOrder:function(orderId, amount, currencyType) {
         if (isWebviewFlag) {
-            exec("onPlaceOrder", [profileId, order]);
+            exec("onPlaceOrder", [orderId, amount, currencyType]);
         };
     },
 
     // 支付订单
-    // profileId : 帐户ID
-    // payType   : 支付类型
-    // order     : 订单详情
-    onOrderPaySucc:function(profileId, payType, order) {
+    // orderId      : 订单ID
+    // amount       : 金额
+    // currencyType : 货币类型
+    // payType      : 支付类型
+    onOrderPaySucc:function(orderId, amount, currencyType, payType) {
         if (isWebviewFlag) {
-            exec("onOrderPaySucc", [profileId, payType, order]);
+            exec("onOrderPaySucc", [orderId, amount, currencyType, payType]);
+        };
+    },
+
+    // 取消订单
+    // orderId      : 订单ID
+    // amount       : 金额
+    // currencyType : 货币类型
+    onCancelOrder:function(orderId, amount, currencyType) {
+        if (isWebviewFlag) {
+            exec("onCancelOrder", [orderId, amount, currencyType]);
         };
     },
 

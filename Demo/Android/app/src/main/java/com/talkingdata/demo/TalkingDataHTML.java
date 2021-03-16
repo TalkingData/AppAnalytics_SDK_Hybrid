@@ -114,19 +114,27 @@ public class TalkingDataHTML {
     
     @SuppressWarnings("unused")
     private void onPlaceOrder(final JSONArray args) throws JSONException {
-        String profileId = args.getString(0);
-        JSONObject orderJson = args.getJSONObject(1);
-        Order order = this.orderFromJSONObject(orderJson);
-        TCAgent.onPlaceOrder(profileId, order);
+        String orderId = args.getString(0);
+        int amount = args.getInt(1);
+        String currencyType = args.getString(2);
+        TCAgent.onPlaceOrder(orderId, amount, currencyType);
     }
     
     @SuppressWarnings("unused")
     private void onOrderPaySucc(final JSONArray args) throws JSONException {
-        String profileId = args.getString(0);
-        String payType = args.getString(1);
-        JSONObject orderJson = args.getJSONObject(2);
-        Order order = this.orderFromJSONObject(orderJson);
-        TCAgent.onOrderPaySucc(profileId, payType, order);
+        String orderId = args.getString(0);
+        int amount = args.getInt(1);
+        String currencyType = args.getString(2);
+        String paymentType = args.getString(3);
+        TCAgent.onOrderPaySucc(orderId, amount, currencyType, paymentType);
+    }
+    
+    @SuppressWarnings("unused")
+    private void onCancelOrder(final JSONArray args) throws JSONException {
+        String orderId = args.getString(0);
+        int amount = args.getInt(1);
+        String currencyType = args.getString(2);
+        TCAgent.onCancelOrder(orderId, amount, currencyType);
     }
     
     @SuppressWarnings("unused")
@@ -241,21 +249,6 @@ public class TalkingDataHTML {
             e.printStackTrace();
         }
         return result;
-    }
-    
-    private Order orderFromJSONObject(JSONObject orderJson) {
-        try {
-            Order order = Order.createOrder(orderJson.getString("orderId"), orderJson.getInt("total"), orderJson.getString("currencyType"));
-            JSONArray items = orderJson.getJSONArray("items");
-            for (int i=0; i<items.length(); i++) {
-                JSONObject item = items.getJSONObject(i);
-                order.addItem(item.getString("itemId"), item.getString("category"), item.getString("name"), item.getInt("unitPrice"), item.getInt("amount"));
-            }
-            return order;
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return null;
     }
     
     private ShoppingCart shoppingCartFromJSONObject(JSONObject shoppingCartJson) {
